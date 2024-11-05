@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  backend: 
+  backend:
     image: 'api-fitness'
     container_name: 'api-fitness'
-    build: 
+    build:
       context: .
       dockerfile: '.docker/Dockerfile'
     ports:
-      - 3001:3002
+      - 3003:3002
     env_file:
       - .env
     volumes:
@@ -23,18 +23,14 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - '5433:5432'
-    expose:
-      - 5432
-    volumes: 
-      - db:/var/lib/postgresql/data
+      - "5434:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
     networks:
-      fitness: 
-        ipv4_address: 172.20.0.2
-# # Names our volume
+      - fitness
+    
 volumes:
-  db:
-    driver: local
+  db_data:
 
 networks:
   fitness:
