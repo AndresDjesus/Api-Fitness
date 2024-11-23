@@ -8,7 +8,7 @@ const sequelize = new Sequelize({
   host: DB_HOST,
   username: DB_USER,
   password: DB_PASSWORD,
-  database: 'postgres',
+  database: 'fitness',
 });
 
 console.log();
@@ -25,6 +25,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // Agregar modelos
+  db.user = require('../models/user')(DataTypes, sequelize);
 
 // relationships 
 

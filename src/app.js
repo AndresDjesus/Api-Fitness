@@ -2,7 +2,7 @@ const express = require('express')
 const r = require('./routes')
 const cors = require('cors');
 const app = express()
-const port = process.env.APP_PORT || 3001
+const port = process.env.APP_PORT || 3002
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: '10mb' }));
 app.use(cors({ 

@@ -1,40 +1,36 @@
 version: '3.8'
-
 services:
   backend:
     image: 'api-fitness'
     container_name: 'api-fitness'
     build:
       context: .
-      dockerfile: '.docker/Dockerfile'
+      dockerfile: .docker/Dockerfile
     ports:
-      - 3003:3002
+      - '3003:3003'
     env_file:
       - .env
     volumes:
-      - ./:/app
+      - './:/app'
     networks:
       - fitness
-  db:
-    image: postgres:14.1-alpine
+  postgres-db:
+    image: 'postgres:14.1-alpine'
     restart: always
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+      POSTGRES_DB: '${DB_NAME}'
     ports:
-      - "5434:5432"
+      - '5434:5432'  # Encerrado en una lista
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
       - fitness
-    
+
 volumes:
   db_data:
 
 networks:
   fitness:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
