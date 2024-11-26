@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const tracking_data = require('../../../models/tracking_data');
 
 // Validador para crear un usuario
 const validatesSChemaCreateUser = Joi.object({
@@ -45,6 +46,14 @@ const validatesSChemaCreateUser = Joi.object({
     training_history: Joi.string().required().messages({
         'any.required': 'El historial de entrenamiento es obligatorio',
         'string.empty': 'El historial de entrenamiento es obligatorio',
+    }),
+    health_data: Joi.string().required().messages({
+        'any.required': 'El historial de entrenamiento es obligatorio',
+        'string.empty': 'El historial de entrenamiento es obligatorio',
+    }),
+    tracking_data_id: Joi.number().required().messages({
+        'any.required': 'El id del registro es requerido',
+        'number.empty': 'El id del registro es requerido',
     }),
 
 });
@@ -95,6 +104,14 @@ const validatesSChemaUpdatePutUser = Joi.object({
         'any.required': 'El historial de entrenamiento es obligatorio',
         'string.empty': 'El historial de entrenamiento es obligatorio',
     }),
+    health_data: Joi.string().required().messages({
+        'any.required': 'El historial de entrenamiento es obligatorio',
+        'string.empty': 'El historial de entrenamiento es obligatorio',
+    }),
+    tracking_data_id: Joi.number().required().messages({
+        'any.required': 'El id del registro es requerido',
+        'number.empty': 'El id del registro es requerido',
+    }),
 });
 
 // Validador para actualizar un user por medio de PATCH
@@ -142,6 +159,14 @@ const validatesSChemaUpdatePatchUser = Joi.object({
     training_history: Joi.string().required().messages({
         'any.required': 'El historial de entrenamiento es obligatorio',
         'string.empty': 'El historial de entrenamiento es obligatorio',
+    }),
+    health_data: Joi.string().required().messages({
+        'any.required': 'El historial de entrenamiento es obligatorio',
+        'string.empty': 'El historial de entrenamiento es obligatorio',
+    }),
+    tracking_data_id: Joi.number().required().messages({
+        'any.required': 'El id del registro es requerido',
+        'number.empty': 'El id del registro es requerido',
     }),
 });
 

@@ -1,4 +1,3 @@
-
 module.exports = (DataTypes , sequelize) => {
     const User = sequelize.define('User', {
         id: {
@@ -50,7 +49,10 @@ module.exports = (DataTypes , sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-       
+        health_data : {
+            type: DataTypes.TEXT,
+            allowNull: false
+        }
     },{
         timestamps: true,
         paranoid: true

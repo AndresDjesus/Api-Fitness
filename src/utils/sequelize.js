@@ -26,9 +26,12 @@ db.sequelize = sequelize;
 
 // Agregar modelos
   db.user = require('../models/user')(DataTypes, sequelize);
+  db.tracking_data = require('../models/tracking_data')(DataTypes, sequelize);
 
 // relationships 
 
+db.tracking_data.hasMany(db.user, { foreignKey: 'tracking_data_id' });
+db.user.belongsTo(db.tracking_data, { as: 'tracking_data', foreignKey: 'tracking_data_id' });
 
 db.sequelize.sync({
     alter: true,

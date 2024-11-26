@@ -18,9 +18,19 @@ const getUsers = async () => {
     }
 }
 
-const getIdUser = async (id) => {
+const getIdUser = async (id ) => 
+    {
     try {
-        return await db.user.findByPk(id);
+        return await db.user.findByPk(id, {
+            attributes: ['id', 'name', 'email', 'password', 'birthdate', 'gender', 'height', 'wehight', 'training_goals', 'fitness_level', 'actividad_level', 'training_history', 'health_data'],
+            include : [
+                {
+                    model: db.tracking_data,
+                    as : 'tracking_data',
+                    attributes: ['id', 'registration_date', 'last_login', 'number_of_plans_completed']
+                }
+            ]
+        } );
     } catch (e) {
         throw e;
     }
