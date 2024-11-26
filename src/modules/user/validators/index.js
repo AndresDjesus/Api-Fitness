@@ -22,6 +22,10 @@ const validatesSChemaCreateUser = Joi.object({
         'string.empty': 'El genero es requerido',
         'any.required': 'El genero es requerido',
     }),
+    height: Joi.string().required().messages({
+        'any.required': 'La altura es requerida',
+        'string.empty': 'La altura es requerida',
+    }),
     wehight: Joi.string().required().messages({
         'any.required': 'El peso es requerido',
         'string.empty': 'El peso es requerido',
@@ -67,6 +71,10 @@ const validatesSChemaUpdatePutUser = Joi.object({
         'string.empty': 'El genero es requerido',
         'any.required': 'El genero es requerido',
     }),
+    height: Joi.string().required().messages({
+        'any.required': 'La altura es requerida',
+        'string.empty': 'La altura es requerida',
+    }),
     wehight: Joi.string().required().messages({
         'any.required': 'El peso es requerido',
         'string.empty': 'El peso es requerido',
@@ -110,6 +118,10 @@ const validatesSChemaUpdatePatchUser = Joi.object({
     gender: Joi.string().valid('masculino', 'femenino', 'otro').required().messages({
         'string.empty': 'El genero es requerido',
         'any.required': 'El genero es requerido',
+    }),
+    height: Joi.string().required().messages({
+        'any.required': 'La altura es requerida',
+        'string.empty': 'La altura es requerida',
     }),
     wehight: Joi.string().required().messages({
         'any.required': 'El peso es requerido',
