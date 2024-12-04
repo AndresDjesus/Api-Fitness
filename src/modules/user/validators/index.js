@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const tracking_data = require('../../../models/tracking_data');
+const training_plan = require('../../../models/training_plan');
 
 // Validador para crear un usuario
 const validatesSChemaCreateUser = Joi.object({
@@ -52,6 +53,10 @@ const validatesSChemaCreateUser = Joi.object({
         'string.empty': 'El historial de entrenamiento es obligatorio',
     }),
     tracking_data_id: Joi.number().required().messages({
+        'any.required': 'El id del registro es requerido',
+        'number.empty': 'El id del registro es requerido',
+    }),
+    training_plan_id: Joi.number().required().messages({
         'any.required': 'El id del registro es requerido',
         'number.empty': 'El id del registro es requerido',
     }),
@@ -112,6 +117,10 @@ const validatesSChemaUpdatePutUser = Joi.object({
         'any.required': 'El id del registro es requerido',
         'number.empty': 'El id del registro es requerido',
     }),
+    training_plan_id: Joi.number().required().messages({
+        'any.required': 'El id del registro es requerido',
+        'number.empty': 'El id del registro es requerido',
+    }),
 });
 
 // Validador para actualizar un user por medio de PATCH
@@ -165,6 +174,10 @@ const validatesSChemaUpdatePatchUser = Joi.object({
         'string.empty': 'El historial de entrenamiento es obligatorio',
     }),
     tracking_data_id: Joi.number().required().messages({
+        'any.required': 'El id del registro es requerido',
+        'number.empty': 'El id del registro es requerido',
+    }),
+    training_plan_id: Joi.number().required().messages({
         'any.required': 'El id del registro es requerido',
         'number.empty': 'El id del registro es requerido',
     }),

@@ -28,6 +28,11 @@ const getIdUser = async (id ) =>
                     model: db.tracking_data,
                     as : 'tracking_data',
                     attributes: ['id', 'registration_date', 'last_login', 'number_of_plans_completed']
+                },
+                {
+                    model: db.training_plan,
+                    as : 'training_plan',
+                    attributes: ['id', 'name', 'description', 'start_date', 'end_date']
                 }
             ]
         } );

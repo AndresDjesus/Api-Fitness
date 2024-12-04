@@ -34,6 +34,9 @@ db.sequelize = sequelize;
 db.tracking_data.hasMany(db.user, { foreignKey: 'tracking_data_id' });
 db.user.belongsTo(db.tracking_data, { as: 'tracking_data', foreignKey: 'tracking_data_id' });
 
+db.training_plan.hasMany(db.user, { foreignKey: 'training_plan_id' });
+db.user.belongsTo(db.training_plan, { as: 'training_plan', foreignKey: 'training_plan_id' });
+
 db.sequelize.sync({
     alter: true,
     force: false,
