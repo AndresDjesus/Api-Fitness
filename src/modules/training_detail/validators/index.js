@@ -18,6 +18,10 @@ const validatesSChemaCreateTrainingDetail = Joi.object({
         'any.required': 'El tipo de entrenamiento es requerido',
         'string.empty': 'El tipo de entrenamiento es requerido',
     }),
+    specific_objective : Joi.string().required().messages({
+        'any.required': 'El objetivo de entrenamiento es requerido',
+        'string.empty': 'El objetivo de entrenamiento es requerido',
+    }),
 });
 
 // Validador para actualizar un registro por medio de PUT
@@ -38,6 +42,10 @@ const validatesSChemaUpdatePutTrainingDetail = Joi.object({
         'any.required': 'El tipo de entrenamiento es requerido',
         'string.empty': 'El tipo de entrenamiento es requerido',
     }),
+    specific_objective : Joi.string().required().messages({
+        'any.required': 'El objetivo de entrenamiento es requerido',
+        'string.empty': 'El objetivo de entrenamiento es requerido',
+    }),
 });
 
 // Validador para actualizar un registro por medio de PATCH
@@ -57,6 +65,10 @@ const validatesSChemaUpdatePatchTrainingDetail = Joi.object({
     type_of_training : Joi.string().valid('cardio', 'resistencia', 'fuerza', 'mixto').required().messages({
         'any.required': 'El tipo de entrenamiento es requerido',
         'string.empty': 'El tipo de entrenamiento es requerido',
+    }),
+    specific_objective : Joi.string().required().messages({
+        'any.required': 'El objetivo de entrenamiento es requerido',
+        'string.empty': 'El objetivo de entrenamiento es requerido',
     }),
 });
 

@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const training_details = require('../../../models/training_details');
 
 // Validador para crear un Registro
 const validatesSChemaCreateTrainingPlan = Joi.object({
@@ -17,6 +18,10 @@ const validatesSChemaCreateTrainingPlan = Joi.object({
     end_date : Joi.string().required().messages({
         'any.required': 'La fecha de fin es requerida',
         'string.empty': 'La fecha de fin es requerida',
+    }),
+    training_details_id : Joi.number().required().messages({
+        'any.required': 'El detalle de entrenamiento es requerido',
+        'string.empty': 'El detalle de entrenamiento es requerido',
     }),
 });
 
@@ -38,6 +43,10 @@ const validatesSChemaUpdatePutTrainingPlan = Joi.object({
         'any.required': 'La fecha de fin es requerida',
         'string.empty': 'La fecha de fin es requerida',
     }),
+    training_details_id : Joi.number().required().messages({
+        'any.required': 'El detalle de entrenamiento es requerido',
+        'string.empty': 'El detalle de entrenamiento es requerido',
+    }),
 });
 
 // Validador para actualizar un registro por medio de PATCH
@@ -57,6 +66,10 @@ const validatesSChemaUpdatePatchTrainingPlan = Joi.object({
     end_date : Joi.string().required().messages({
         'any.required': 'La fecha de fin es requerida',
         'string.empty': 'La fecha de fin es requerida',
+    }),
+    training_details_id : Joi.number().required().messages({
+        'any.required': 'El detalle de entrenamiento es requerido',
+        'string.empty': 'El detalle de entrenamiento es requerido',
     }),
 });
 

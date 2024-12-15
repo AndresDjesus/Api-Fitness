@@ -20,7 +20,16 @@ const getTrainingPlan = async () => {
 
 const getIdTrainingPlan = async (id) => {
     try {
-        return await db.training_plan.findByPk(id);
+        return await db.training_plan.findByPk(id , {
+            attributes: ['id', 'name', 'description', 'start_date', 'end_date'],
+            include : [
+                {
+                    model: db.training_details,
+                    as : 'training_details',
+                    attributes: ['id', 'training_days_per_week', 'estimated_duration_per_session', 'intensity', 'type_of_training', 'specific_objective']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }
