@@ -29,6 +29,7 @@ db.sequelize = sequelize;
   db.tracking_data = require('../models/tracking_data')(DataTypes, sequelize);
   db.training_plan = require('../models/training_plan')(DataTypes, sequelize);
   db.training_details = require('../models/training_details')(DataTypes, sequelize);
+  db.exercise = require('../models/exercise')(DataTypes, sequelize);
 
 // relationships 
 
