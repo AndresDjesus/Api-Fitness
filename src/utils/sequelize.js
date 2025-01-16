@@ -30,6 +30,7 @@ db.sequelize = sequelize;
   db.training_plan = require('../models/training_plan')(DataTypes, sequelize);
   db.training_details = require('../models/training_details')(DataTypes, sequelize);
   db.exercise = require('../models/exercise')(DataTypes, sequelize);
+  db.images = require('../models/images')(DataTypes, sequelize);
 
 // relationships 
 
@@ -41,6 +42,12 @@ db.user.belongsTo(db.training_plan, { as: 'training_plan', foreignKey: 'training
 
 db.training_details.hasMany(db.training_plan, { foreignKey: 'training_details_id' });
 db.training_plan.belongsTo(db.training_details, { as: 'training_details', foreignKey: 'training_details_id' });
+
+db.training_plan.hasMany(db.exercise, { foreignKey: 'training_plan_id' });
+db.exercise.belongsTo(db.training_plan, { as: 'training_plan', foreignKey: 'training_plan_id' });
+
+db.exercise.hasMany(db.images, { foreignKey: 'exercise_id' });
+db.images.belongsTo(db.exercise, { as: 'exercise', foreignKey: 'exercise_id' });
 
 db.sequelize.sync({
     alter: true,
